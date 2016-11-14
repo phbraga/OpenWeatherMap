@@ -5,12 +5,13 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11542"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="OpenWeatherMap" customModuleProvider="target">
             <connections>
+                <outlet property="mapView" destination="wnc-qw-iN1" id="8hc-Av-tI1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,20 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKF-WL-1og">
-                    <rect key="frame" x="157.5" y="323" width="60" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="fdF-1t-ZcT"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-qw-iN1" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SKF-WL-1og" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="QRn-aw-5Bg"/>
-                <constraint firstItem="SKF-WL-1og" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hDb-EC-sEy"/>
+                <constraint firstAttribute="bottom" secondItem="wnc-qw-iN1" secondAttribute="bottom" id="2QU-HU-scv"/>
+                <constraint firstItem="wnc-qw-iN1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3qE-Kv-9Mn"/>
+                <constraint firstAttribute="trailing" secondItem="wnc-qw-iN1" secondAttribute="trailing" id="QiC-rE-flQ"/>
+                <constraint firstItem="wnc-qw-iN1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TCQ-WA-qIA"/>
             </constraints>
         </view>
     </objects>
