@@ -13,6 +13,9 @@
 		DAB4695D1DDA78AF0059CCA5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB4695C1DDA78AF0059CCA5 /* LaunchScreen.xib */; };
 		DAB469601DDA79280059CCA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4695E1DDA79280059CCA5 /* MapViewController.swift */; };
 		DAB469611DDA79280059CCA5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB4695F1DDA79280059CCA5 /* MapViewController.xib */; };
+		DAB469641DDAB07E0059CCA5 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB469621DDAB07E0059CCA5 /* CityTableViewController.swift */; };
+		DAB469651DDAB07E0059CCA5 /* CityTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB469631DDAB07E0059CCA5 /* CityTableViewController.xib */; };
+		DAB469671DDAB0FC0059CCA5 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB469661DDAB0FC0059CCA5 /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +25,11 @@
 		DAB469511DDA78030059CCA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB469561DDA78030059CCA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAB4695C1DDA78AF0059CCA5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		DAB4695E1DDA79280059CCA5 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		DAB4695F1DDA79280059CCA5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		DAB4695E1DDA79280059CCA5 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		DAB4695F1DDA79280059CCA5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = ../MapViewController.xib; sourceTree = "<group>"; };
+		DAB469621DDAB07E0059CCA5 /* CityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityTableViewController.swift; path = ../CityTableViewController.swift; sourceTree = "<group>"; };
+		DAB469631DDAB07E0059CCA5 /* CityTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CityTableViewController.xib; path = ../CityTableViewController.xib; sourceTree = "<group>"; };
+		DAB469661DDAB0FC0059CCA5 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = ../City.swift; sourceTree = "<group>"; };
 		EBAEE0254333D32F59504D83 /* Pods-OpenWeatherMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeatherMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenWeatherMap/Pods-OpenWeatherMap.debug.xcconfig"; sourceTree = "<group>"; };
 		F4258D6F86BF5BB348BC7E65 /* Pods-OpenWeatherMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeatherMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenWeatherMap/Pods-OpenWeatherMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,13 +85,40 @@
 			isa = PBXGroup;
 			children = (
 				DAB4694A1DDA78030059CCA5 /* AppDelegate.swift */,
-				DAB4695E1DDA79280059CCA5 /* MapViewController.swift */,
-				DAB4695F1DDA79280059CCA5 /* MapViewController.xib */,
+				DAB469691DDABF1C0059CCA5 /* Model */,
+				DAB4696A1DDABF250059CCA5 /* Views */,
+				DAB469681DDABEF20059CCA5 /* Supporting Files */,
+			);
+			path = OpenWeatherMap;
+			sourceTree = "<group>";
+		};
+		DAB469681DDABEF20059CCA5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				DAB469511DDA78030059CCA5 /* Assets.xcassets */,
 				DAB469561DDA78030059CCA5 /* Info.plist */,
 				DAB4695C1DDA78AF0059CCA5 /* LaunchScreen.xib */,
 			);
-			path = OpenWeatherMap;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAB469691DDABF1C0059CCA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DAB469661DDAB0FC0059CCA5 /* City.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DAB4696A1DDABF250059CCA5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DAB4695E1DDA79280059CCA5 /* MapViewController.swift */,
+				DAB4695F1DDA79280059CCA5 /* MapViewController.xib */,
+				DAB469621DDAB07E0059CCA5 /* CityTableViewController.swift */,
+				DAB469631DDAB07E0059CCA5 /* CityTableViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB469651DDAB07E0059CCA5 /* CityTableViewController.xib in Resources */,
 				DAB4695D1DDA78AF0059CCA5 /* LaunchScreen.xib in Resources */,
 				DAB469611DDA79280059CCA5 /* MapViewController.xib in Resources */,
 				DAB469521DDA78030059CCA5 /* Assets.xcassets in Resources */,
@@ -211,7 +245,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB469641DDAB07E0059CCA5 /* CityTableViewController.swift in Sources */,
 				DAB469601DDA79280059CCA5 /* MapViewController.swift in Sources */,
+				DAB469671DDAB0FC0059CCA5 /* City.swift in Sources */,
 				DAB4694B1DDA78030059CCA5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
