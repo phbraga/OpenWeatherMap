@@ -18,15 +18,15 @@ class City: NSObject {
     init(_ map: [String: Any]) {
         self.name = map["name"] as! String?
         
-        if let mainInformation = map["main"] as? [String: Any] {
-            let minTemperature = mainInformation["temp_min"] as? Double
+        if let mainEntry = map["main"] as? [String: Any] {
+            let minTemperature = mainEntry["temp_min"] as? Double
             self.minTemperature = minTemperature! - 273.0
-            let maxTemperature = mainInformation["temp_max"] as? Double
+            let maxTemperature = mainEntry["temp_max"] as? Double
             self.maxTemperature = maxTemperature! - 273.0
         }
         
-        if let weather = map["weather"] as? NSArray {
-            if let weatherDescription = weather[0] as? [String: Any] {
+        if let weatherEntry = map["weather"] as? NSArray {
+            if let weatherDescription = weatherEntry[0] as? [String: Any] {
                 self.weatherDescription = weatherDescription["description"] as? String
             }
         }

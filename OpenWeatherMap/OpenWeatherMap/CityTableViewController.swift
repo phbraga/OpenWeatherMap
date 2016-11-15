@@ -99,7 +99,7 @@ class CityTableViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.navigationController?.pushViewController(CityDetailViewController.init(city: self.cities?[indexPath.row]), animated: true)
     }
     
 }
