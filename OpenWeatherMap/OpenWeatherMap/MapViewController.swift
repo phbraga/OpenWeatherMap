@@ -24,7 +24,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
-        self.navigationController?.pushViewController(CityTableViewController.init(position: self.currentMarker?.position), animated: true)
+        self.navigationController?.pushViewController(CityViewController.init(position: self.currentMarker?.position), animated: true)
     }
     
     //MARK: GMSMapViewDelegate
@@ -38,7 +38,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         self.searchButton.isEnabled = true
         self.currentMarker!.position = coordinate
         self.currentMarker!.title = "Click on Search Button"
-        self.currentMarker!.snippet = "\tto find nearest 15 cities"
+        self.currentMarker!.snippet = "\tto find the nearest 15 cities"
         self.currentMarker!.map = self.mapView
     }
 

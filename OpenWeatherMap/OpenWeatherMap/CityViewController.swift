@@ -8,8 +8,13 @@
 
 import UIKit
 import CoreLocation
+import PKHUD
 
-class CityTableViewController: UITableViewController {
+class CityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorMessageLabel: UILabel!
+    @IBOutlet weak var noConnectionView: UIView!
     
     private var cities: [City]?
     private var openWeatherMapAPIKey: String?
@@ -18,7 +23,7 @@ class CityTableViewController: UITableViewController {
     public init(position: CLLocationCoordinate2D?) {
         self.position = position
         
-        super.init(nibName: "CityTableViewController", bundle: nil)
+        super.init(nibName: "CityViewController", bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,6 +41,10 @@ class CityTableViewController: UITableViewController {
     }
     
     private func searchCities () -> Void {
+        
+        HUD.show(.progress)
+        HUD.allowsInteraction = false
+        
         let urlString = "http://api.openweathermap.org/data/2.5/find?lat=\(self.position!.latitude)&lon=\(self.position!.longitude)&cnt=15&APPID=\(openWeatherMapAPIKey!)"
         
         let url = URL(string: urlString)
@@ -56,37 +65,42 @@ class CityTableViewController: UITableViewController {
                             }
                         }
                         
-                        DispatchQueue.main.async { self.tableView.reloadData() }
+                        DispatchQueue.main.async {
+                            self.noConnectionView.isHidden = true
+                            self.tableView.reloadData()
+                        }
                     }
                     
                 } catch {
-                    self.showAlertMessage("Ups!", "An Error Occurred")
+                    self.errorMessageLabel.text = "An error has occurred"
+                    self.noConnectionView.isHidden = false
                 }
                 
             } else {
-                self.showAlertMessage("Ups!", "An Error Occurred")
+                self.errorMessageLabel.text = "Check your connectivity and"
+                self.noConnectionView.isHidden = false
             }
+            
+            HUD.hide()
             
         }).resume()
     }
-    
-    private func showAlertMessage(_ title: String?, _ message: String) -> Void {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
 
+    @IBAction func tryAgainTapped(_ sender: UIButton) {
+        self.searchCities()
+    }
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities != nil ? self.cities!.count : 0
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
         
         let city = self.cities?[indexPath.row]
@@ -98,7 +112,7 @@ class CityTableViewController: UITableViewController {
 
     // MARK: - Table view delegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.navigationController?.pushViewController(CityDetailViewController.init(city: self.cities?[indexPath.row]), animated: true)
     }
     

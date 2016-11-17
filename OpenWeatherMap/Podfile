@@ -7,5 +7,6 @@ target 'OpenWeatherMap' do
 
   # Pods for OpenWeatherMap
   pod 'GoogleMaps'
+  pod 'PKHUD_Swift_3'
   
 end

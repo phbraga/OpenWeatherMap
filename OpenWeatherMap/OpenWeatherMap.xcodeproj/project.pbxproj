@@ -13,8 +13,8 @@
 		DAB4695D1DDA78AF0059CCA5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB4695C1DDA78AF0059CCA5 /* LaunchScreen.xib */; };
 		DAB469601DDA79280059CCA5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4695E1DDA79280059CCA5 /* MapViewController.swift */; };
 		DAB469611DDA79280059CCA5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB4695F1DDA79280059CCA5 /* MapViewController.xib */; };
-		DAB469641DDAB07E0059CCA5 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB469621DDAB07E0059CCA5 /* CityTableViewController.swift */; };
-		DAB469651DDAB07E0059CCA5 /* CityTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB469631DDAB07E0059CCA5 /* CityTableViewController.xib */; };
+		DAB469641DDAB07E0059CCA5 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB469621DDAB07E0059CCA5 /* CityViewController.swift */; };
+		DAB469651DDAB07E0059CCA5 /* CityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB469631DDAB07E0059CCA5 /* CityViewController.xib */; };
 		DAB469671DDAB0FC0059CCA5 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB469661DDAB0FC0059CCA5 /* City.swift */; };
 		DAB4696D1DDB5D220059CCA5 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4696B1DDB5D220059CCA5 /* CityDetailViewController.swift */; };
 		DAB4696E1DDB5D220059CCA5 /* CityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB4696C1DDB5D220059CCA5 /* CityDetailViewController.xib */; };
@@ -29,8 +29,8 @@
 		DAB4695C1DDA78AF0059CCA5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		DAB4695E1DDA79280059CCA5 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
 		DAB4695F1DDA79280059CCA5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = ../MapViewController.xib; sourceTree = "<group>"; };
-		DAB469621DDAB07E0059CCA5 /* CityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityTableViewController.swift; path = ../CityTableViewController.swift; sourceTree = "<group>"; };
-		DAB469631DDAB07E0059CCA5 /* CityTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CityTableViewController.xib; path = ../CityTableViewController.xib; sourceTree = "<group>"; };
+		DAB469621DDAB07E0059CCA5 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityViewController.swift; path = ../CityViewController.swift; sourceTree = "<group>"; };
+		DAB469631DDAB07E0059CCA5 /* CityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CityViewController.xib; path = ../CityViewController.xib; sourceTree = "<group>"; };
 		DAB469661DDAB0FC0059CCA5 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = ../City.swift; sourceTree = "<group>"; };
 		DAB4696B1DDB5D220059CCA5 /* CityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		DAB4696C1DDB5D220059CCA5 /* CityDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityDetailViewController.xib; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 			children = (
 				DAB4695E1DDA79280059CCA5 /* MapViewController.swift */,
 				DAB4695F1DDA79280059CCA5 /* MapViewController.xib */,
-				DAB469621DDAB07E0059CCA5 /* CityTableViewController.swift */,
-				DAB469631DDAB07E0059CCA5 /* CityTableViewController.xib */,
+				DAB469621DDAB07E0059CCA5 /* CityViewController.swift */,
+				DAB469631DDAB07E0059CCA5 /* CityViewController.xib */,
 				DAB4696B1DDB5D220059CCA5 /* CityDetailViewController.swift */,
 				DAB4696C1DDB5D220059CCA5 /* CityDetailViewController.xib */,
 			);
@@ -189,7 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB469651DDAB07E0059CCA5 /* CityTableViewController.xib in Resources */,
+				DAB469651DDAB07E0059CCA5 /* CityViewController.xib in Resources */,
 				DAB4695D1DDA78AF0059CCA5 /* LaunchScreen.xib in Resources */,
 				DAB469611DDA79280059CCA5 /* MapViewController.xib in Resources */,
 				DAB469521DDA78030059CCA5 /* Assets.xcassets in Resources */,
@@ -252,7 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB469641DDAB07E0059CCA5 /* CityTableViewController.swift in Sources */,
+				DAB469641DDAB07E0059CCA5 /* CityViewController.swift in Sources */,
 				DAB469601DDA79280059CCA5 /* MapViewController.swift in Sources */,
 				DAB469671DDAB0FC0059CCA5 /* City.swift in Sources */,
 				DAB4694B1DDA78030059CCA5 /* AppDelegate.swift in Sources */,
