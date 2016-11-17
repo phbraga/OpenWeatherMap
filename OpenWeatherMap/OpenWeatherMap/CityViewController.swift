@@ -50,38 +50,40 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         let url = URL(string: urlString)
         
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-        
-            if error == nil {
+            
+            
+            DispatchQueue.main.async { () -> Void in
                 
-                do {
-                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
-                    self.cities = [City]()
+                HUD.hide()
+                
+                if error == nil {
                     
-                    if let citiesDictionary = parsedData["list"] as? NSArray {
-                        for city in citiesDictionary {
-                            if let cityMap = city as? [String: AnyObject] {
-                                let newCity = City.init(cityMap)
-                                self.cities?.append(newCity)
-                            }
-                        }
+                    do {
+                        let parsedData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
+                        self.cities = [City]()
                         
-                        DispatchQueue.main.async {
+                        if let citiesDictionary = parsedData["list"] as? NSArray {
+                            for city in citiesDictionary {
+                                if let cityMap = city as? [String: AnyObject] {
+                                    let newCity = City.init(cityMap)
+                                    self.cities?.append(newCity)
+                                }
+                            }
+                            
                             self.noConnectionView.isHidden = true
                             self.tableView.reloadData()
                         }
+                        
+                    } catch {
+                        self.errorMessageLabel.text = "An error has occurred"
+                        self.noConnectionView.isHidden = false
                     }
                     
-                } catch {
-                    self.errorMessageLabel.text = "An error has occurred"
+                } else {
+                    self.errorMessageLabel.text = "Check your connectivity and"
                     self.noConnectionView.isHidden = false
                 }
-                
-            } else {
-                self.errorMessageLabel.text = "Check your connectivity and"
-                self.noConnectionView.isHidden = false
             }
-            
-            HUD.hide()
             
         }).resume()
     }
@@ -113,6 +115,7 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(CityDetailViewController.init(city: self.cities?[indexPath.row]), animated: true)
     }
     
