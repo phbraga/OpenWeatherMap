@@ -59,10 +59,10 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if error == nil {
                     
                     do {
-                        let parsedData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
+                        let parsedData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any]
                         self.cities = [City]()
                         
-                        if let citiesDictionary = parsedData["list"] as? NSArray {
+                        if let citiesDictionary = parsedData?["list"] as? NSArray {
                             for city in citiesDictionary {
                                 if let cityMap = city as? [String: AnyObject] {
                                     let newCity = City.init(cityMap)
